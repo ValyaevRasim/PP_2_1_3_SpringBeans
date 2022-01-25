@@ -11,9 +11,15 @@ import javax.annotation.Resource;
 @Component
 public class AnimalsCage {
 
-    @Autowired
-    @Qualifier("Dog")
+//    @Autowired
+//    @Qualifier("dog")
     private Animal animal;
+    private Timer timer;
+
+    AnimalsCage(@Qualifier("dog") Animal animal, Timer timer) {
+        this.animal = animal;
+        this.timer = timer;
+    }
 
     public void whatAnimalSay() {
         System.out.println("Say:");
@@ -21,5 +27,9 @@ public class AnimalsCage {
         System.out.println("At:");
         System.out.println(new Timer().getTime());
         System.out.println("________________________");
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 }
