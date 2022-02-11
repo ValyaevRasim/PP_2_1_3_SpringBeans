@@ -11,11 +11,7 @@ import javax.annotation.Resource;
 @Component
 public class AnimalsCage {
 
-    @Autowired
-    @Qualifier("dog")
     private Animal animal;
-
-    @Autowired
     private Timer timer;
 
     AnimalsCage(@Qualifier("dog") Animal animal, @Qualifier("timer") Timer timer) {
